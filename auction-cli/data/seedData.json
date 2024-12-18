@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Antique Vase",
+    "description": "A beautiful antique vase from the 19th century.",
+    "start_price": 100,
+    "reserve_price": 200
+  },
+  {
+    "title": "Vintage Watch",
+    "description": "A classic vintage watch in excellent condition.",
+    "start_price": 300,
+    "reserve_price": 500
+  },
+  {
+    "title": "Wooden Carving",
+    "description": "Hand-carved wooden sculpture from Africa.",
+    "start_price": 150,
+    "reserve_price": 250
+  },
+  {
+    "title": "Oil Painting",
+    "description": "An original oil painting by a renowned local artist.",
+    "start_price": 400,
+    "reserve_price": 700
+  },
+  {
+    "title": "Rare Coin Collection",
+    "description": "A set of rare coins dating back to the 18th century.",
+    "start_price": 500,
+    "reserve_price": 1000
+  },
+  {
+    "title": "Leather Armchair",
+    "description": "A vintage leather armchair, slightly worn but elegant.",
+    "start_price": 250,
+    "reserve_price": 400
+  },
+  {
+    "title": "Antique Clock",
+    "description": "A functional antique clock with intricate designs.",
+    "start_price": 350,
+    "reserve_price": 600
+  },
+  {
+    "title": "Crystal Chandelier",
+    "description": "A dazzling crystal chandelier perfect for large rooms.",
+    "start_price": 800,
+    "reserve_price": 1200
+  },
+  {
+    "title": "Vinyl Record Set",
+    "description": "A collection of classic rock vinyl records in great condition.",
+    "start_price": 100,
+    "reserve_price": 150
+  },
+  {
+    "title": "Porcelain Tea Set",
+    "description": "A delicate porcelain tea set with gold accents.",
+    "start_price": 120,
+    "reserve_price": 180
+  },
+  {
+    "title": "Gold Necklace",
+    "description": "A beautiful gold necklace with a ruby pendant.",
+    "start_price": 700,
+    "reserve_price": 1000
+  },
+  {
+    "title": "Silverware Set",
+    "description": "A complete silverware set perfect for formal dinners.",
+    "start_price": 150,
+    "reserve_price": 300
+  },
+  {
+    "title": "Renaissance Sculpture",
+    "description": "A detailed sculpture inspired by Renaissance art.",
+    "start_price": 600,
+    "reserve_price": 900
+  },
+  {
+    "title": "Persian Rug",
+    "description": "A handwoven Persian rug with intricate patterns.",
+    "start_price": 450,
+    "reserve_price": 800
+  },
+  {
+    "title": "PS5",
+    "description": "A used PS5 still in good working condition.",
+    "start_price": 450,
+    "reserve_price": 750
+  },
+  {
+    "title": "PS5 Pro",
+    "description": "A brand new PS5 Pro. Still in box has not been used.",
+    "start_price": 1200,
+    "reserve_price": 1500
+  }
+]
