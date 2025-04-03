@@ -1,26 +1,37 @@
-// This file brings everything together and creates a simple Command-Line Interface (CLI) using the yargs library.
-
 const yargs = require('yargs'); // Import yargs library
-const connectDB = require('./db'); // Import connectDB function from db.js
-const mongoose = require('mongoose'); // Import mongoose library
+const connectDB = require('./db'); // Import database connection
+const mongoose = require('mongoose'); // Import mongoose
 const AuctionItem = require('./models/AuctionItem'); // Import AuctionItem model
-const seedData = require('./data/seedData.json'); // Import seed data from seedData.json
+const seedData = require('./data/seedData.json'); // Import seed data
 
 connectDB(); // Connect to MongoDB
 
-const argv = yargs // Create a new yargs instance
-  .command('seed', 'Seed auction data into the database', {}, async () => { // Create a seed command
+const argv = yargs
+  .command('seed', 'Seed auction data into the database', {}, async () => {
     try {
-      console.log(`Current Database: ${mongoose.connection.name}`); // Log the current database name
+      console.log(`Current Database: ${mongoose.connection.name}`);
       await AuctionItem.deleteMany(); // Clear existing data
       await AuctionItem.insertMany(seedData); // Insert new data
-      const count = await AuctionItem.countDocuments(); // Count the number of documents
-      console.log(`Data seeded successfully! Document count: ${count}`); // Log success message
+      const count = await AuctionItem.countDocuments();
+      console.log(`Data seeded successfully! Document count: ${count}`);
     } catch (error) {
       console.error(`Error seeding data: ${error.message}`);
     } finally {
-      process.exit(); // Exit the process
+      process.exit();
     }
   })
-  .help() // Add help command
-  .argv; // Parse the arguments
+  .command('list', 'Display all auction items', {}, async () => { 
+    try {
+      const items = await AuctionItem.find(); // Fetch all auction items
+      console.log("Auction Items:");
+      items.forEach(item => {
+        console.log(`- ${item.title}: ${item.description} (Start Price: $${item.start_price}, Reserve Price: $${item.reserve_price})`);
+      });
+    } catch (error) {
+      console.error(`Error fetching auction items: ${error.message}`);
+    } finally {
+      process.exit();
+    }
+  })
+  .help()
+  .argv;

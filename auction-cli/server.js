@@ -18,26 +18,26 @@ app.use(express.json());
 // Connect to MongoDB
 connectDB();
 
-// Route: Search Auction Items by keyword
-app.get("/api/Auction-Items", async (req, res) => {
+// ✅ Unified Route: Get All Items OR Search by Keyword
+app.get("/api/auction-items", async (req, res) => {
   try {
     const { search } = req.query;
+    let items;
 
-    if (!search) {
-      return res
-        .status(400)
-        .json({ message: "Please provide a search keyword." });
+    if (search) {
+      // Perform case-insensitive keyword search on title and description
+      items = await AuctionItem.find({
+        $or: [
+          { title: { $regex: search, $options: "i" } },
+          { description: { $regex: search, $options: "i" } },
+        ],
+      });
+    } else {
+      // Get all auction items if no search query is provided
+      items = await AuctionItem.find();
     }
 
-    // Perform case-insensitive keyword search on title and description
-    const items = await AuctionItem.find({
-      $or: [
-        { title: { $regex: search, $options: "i" } },
-        { description: { $regex: search, $options: "i" } },
-      ],
-    });
-
-    res.status(200).json({ items });
+    res.status(200).json(items);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });
